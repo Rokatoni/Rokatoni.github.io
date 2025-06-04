@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digitálna Vizitka</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Animated background elements */
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+            50% { transform: translateY(-20px) rotate(5deg); opacity: 0.4; }
+            100% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.1); opacity: 0.3; }
+            100% { transform: scale(1); opacity: 0.7; }
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .bg-element {
+            position: fixed;
+            z-index: -1;
+            border-radius: 50%;
+        }
+        
+        .element-1 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(79, 70, 229, 0.2) 0%, rgba(16, 16, 84, 0) 70%);
+            top: 10%;
+            left: 10%;
+            animation: float 15s infinite ease-in-out;
+        }
+        
+        .element-2 {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.2) 0%, rgba(84, 16, 45, 0) 70%);
+            bottom: 15%;
+            right: 10%;
+            animation: pulse 12s infinite ease-in-out;
+        }
+        
+        .element-3 {
+            width: 150px;
+            height: 150px;
+            border: 2px solid rgba(139, 92, 246, 0.15);
+            top: 40%;
+            right: 25%;
+            animation: spin 30s infinite linear;
+        }
+        
+        .stars {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+        
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+        }
+        
+        @keyframes twinkle {
+            0% { opacity: 0.2; }
+            50% { opacity: 0.8; }
+            100% { opacity: 0.2; }
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white min-h-screen"
+    style="background-image: url('https://images.unsplash.com/photo-1533514114760-4389f0550408'); background-size: cover; background-position: center;">
+    
+    <!-- Animated background elements -->
+    <div class="bg-element element-1"></div>
+    <div class="bg-element element-2"></div>
+    <div class="bg-element element-3"></div>
+    
+    <!-- Stars background -->
+    <div class="stars" id="stars"></div>
+    
+    <div class="bg-black/80 backdrop-blur-md rounded-3xl p-8 md:p-12 max-w-7xl mx-auto mt-10 shadow-lg">
+        <h1 class="text-4xl font-bold text-center mb-12">Náš Tím</h1>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <!-- Tobias -->
+            <div class="bg-neutral-900 p-6 rounded-xl">
+                <img class="w-24 h-24 rounded-full mx-auto border-4 border-white" src="https://media.licdn.com/dms/image/v2/D4D03AQHiSGWa_RqzNQ/profile-displayphoto-shrink_400_400/B4DZX7pHivHsAg-/0/1743683616161?e=1754524800&v=beta&t=vuTgnt0YxX2cB_y6KQiWaQcCXTu7rs4Cr_mX2rwUa_4"
+                    alt="Tobias">
+                <h2 class="text-xl font-semibold mt-4">Tobias Kurz</h2>
+                <p class="text-gray-400 text-sm mb-6">Programátor & Game Designer & Zvukár</p>
+
+                <!-- Links with icons -->
+
+                
+                <div class="space-y-4">
+                    <a href="https://www.instagram.com/tobiasjefrajer/?__pwa=1#" class="block">
+                        <div
+                            class="bg-neutral-800 rounded-xl p-4 flex items-start hover:bg-neutral-700 transition-colors">
+                            <div
+                                class="bg-blue-500 h-16 w-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fab fa-instagram text-2xl"></i>
+                            </div>
+                            <div class="ml-4 text-left">
+                                <h3 class="font-semibold">@tobiasjefrajer</h3>
+                                <p class="text-gray-400 text-sm">Osobný Life</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/tobias-kurz-674431347/" class="block">
+                        <div
+                            class="bg-neutral-800 rounded-xl p-4 flex items-start hover:bg-neutral-700 transition-colors">
+                            <div
+                                class="bg-blue-700 h-16 w-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fab fa-linkedin-in text-2xl"></i>
+                            </div>
+                            <div class="ml-4 text-left">
+                                <h3 class="font-semibold">LinkedIn</h3>
+                                <p class="text-gray-400 text-sm">Niečo o mne</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="block">
+                        <div
+                            class="bg-neutral-800 rounded-xl p-4 flex items-start hover:bg-neutral-700 transition-colors">
+                            <div class="bg-red-600 h-16 w-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fab fa-itch-io text-2xl"></i>
+                            </div>
+                            <div class="ml-4 text-left">
+                                <h3 class="font-semibold">itch.io</h3>
+                                <p class="text-gray-400 text-sm">MojeProjekty</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Matej -->
+            <div class="bg-neutral-900 p-6 rounded-xl">
+                <img class="w-24 h-24 rounded-full mx-auto border-4 border-white" src="https://i.pravatar.cc/150?img=14"
+                    alt="Matej">
+                <h2 class="text-xl font-semibold mt-4">Matej Pír Fritz</h2>
+                <p class="text-gray-400 text-sm mb-6">3D Grafika & Game Designer</p>
+
+                <!-- Links with icons -->
+                <div class="space-y-4">
+                    <a href="https://www.instagram.com/matko0__/?__pwa=1#" class="block">
+                        <div
+                            class="bg-neutral-800 rounded-xl p-4 flex items-start hover:bg-neutral-700 transition-colors">
+                            <div
+                                class="bg-blue-500 h-16 w-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fab fa-instagram text-2xl"></i>
+                            </div>
+                            <div class="ml-4 text-left">
+                                <h3 class="font-semibold">@Matko0_</h3>
+                                <p class="text-gray-400 text-sm">Daj follow stupava oujeee</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/matej-p%C3%ADr-205761279/" class="block">
+                        <div
+                            class="bg-neutral-800 rounded-xl p-4 flex items-start hover:bg-neutral-700 transition-colors">
+                            <div
+                                class="bg-blue-700 h-16 w-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fab fa-linkedin-in text-2xl"></i>
+                            </div>
+                            <div class="ml-4 text-left">
+                                <h3 class="font-semibold">LinkedIn</h3>
+                                <p class="text-gray-400 text-sm">XXX</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="block">
+                        <div
+                            class="bg-neutral-800 rounded-xl p-4 flex items-start hover:bg-neutral-700 transition-colors">
+                            <div
+                                class="bg-green-600 h-16 w-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-globe text-2xl"></i>
+                            </div>
+                            <div class="ml-4 text-left">
+                                <h3 class="font-semibold">Personal Website</h3>
+                                <p class="text-gray-400 text-sm">My portfolio and projects</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Viky -->
+            <div class="bg-neutral-900 p-6 rounded-xl">
+                <img class="w-24 h-24 rounded-full mx-auto border-4 border-white" src="https://i.pravatar.cc/150?img=47"
+                    alt="Viky">
+                <h2 class="text-xl font-semibold mt-4">Viky Emma Dobiašová</h2>
+                <p class="text-gray-400 text-sm mb-6">Grafika & Hudba</p>
+
+                <!-- Links with icons -->
+                <div class="space-y-4">
+                    <a href="#" class="block">
+                        <div
+                            class="bg-neutral-800 rounded-xl p-4 flex items-start hover:bg-neutral-700 transition-colors">
+                            <div
+                                class="bg-blue-500 h-16 w-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fab fa-instagram text-2xl"></i>
+                            </div>
+                            <div class="ml-4 text-left">
+                                <h3 class="font-semibold">@viky.artworks</h3>
+                                <p class="text-gray-400 text-sm">Digital art & game assets</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="block">
+                        <div
+                            class="bg-neutral-800 rounded-xl p-4 flex items-start hover:bg-neutral-700 transition-colors">
+                            <div
+                                class="bg-blue-700 h-16 w-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fab fa-linkedin-in text-2xl"></i>
+                            </div>
+                            <div class="ml-4 text-left">
+                                <h3 class="font-semibold">LinkedIn Profile</h3>
+                                <p class="text-gray-400 text-sm">My professional experience</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="block">
+                        <div
+                            class="bg-neutral-800 rounded-xl p-4 flex items-start hover:bg-neutral-700 transition-colors">
+                            <div
+                                class="bg-purple-600 h-16 w-16 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-music text-2xl"></i>
+                            </div>
+                            <div class="ml-4 text-left">
+                                <h3 class="font-semibold">SoundCloud</h3>
+                                <p class="text-gray-400 text-sm">Game music & sound effects</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <section class="mt-16 text-center text-white">
+            <h2 class="text-3xl font-bold mb-4">O nás</h2>
+            <p class="max-w-3xl mx-auto text-gray-400 text-base">
+                Všetci študujeme vývoj digitálnych hier na Modernej Strednej Škole Skyro — mieste, kde sa formujú budúci lídri herného priemyslu. Sme generácia, ktorá nečaká na budúcnosť. Sme tí, ktorí ju práve vytvárajú. Náš tím pokrýva celý kreatívny proces: od herného dizajnu, cez 3D vizuály až po originálny zvukový svet a kód.
+            </p>
+          </section>
+
+        <!-- Portfólio spoločné -->
+        <div class="mt-16">
+            <h2 class="text-2xl font-semibold text-center mb-8">Spoločné Portfólio</h2>
+
+            <!-- Section 1: Image left, text right -->
+            <div class="flex flex-col md:flex-row bg-neutral-900 rounded-xl overflow-hidden">
+                <div class="md:w-1/2">
+                    <video loop autoplay muted class="w-full h-full object-cover"
+                        src="https://cdn.cosmos.so/bda39fdd-0a93-4ff5-b70d-86520a3ece84.mp4" alt="Pixel Art Game">
+                </div>
+                <div class="md:w-1/2 p-6 flex flex-col justify-center">
+                    <h3 class="text-xl font-semibold mb-3">Retro Puzzle Hra</h3>
+                    <p class="text-gray-300">Minimalistická puzzle hra v retro štýle s jedinečnými hernými mechanizmami.
+                        Jednoduchý vizuál skrýva komplexné hádanky, ktoré preveria logické myslenie hráčov.</p>
+                </div>
+            </div>
+
+
+            <!-- Section 2: Text left, image right -->
+            <div class="flex flex-col md:flex-row-reverse bg-neutral-900 rounded-xl overflow-hidden mb-8">
+                <div class="md:w-1/2">
+                    <iframe class="w-full h-full min-h-[300px]" src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        title="Gameplay Ukážka" allowfullscreen></iframe>
+                </div>
+                <div class="md:w-1/2 p-6 flex flex-col justify-center">
+                    <h3 class="text-xl font-semibold mb-3">Vesmírna Adventúra</h3>
+                    <p class="text-gray-300">Sci-fi adventúra zasadená do vzdialenej budúcnosti, kde hráči skúmajú
+                        neznáme planéty a stretávajú mimozemské civilizácie. Hra ponúka otvorený svet a nelineárny
+                        príbeh.</p>
+                </div>
+            </div>
+
+            <!-- Section 3: Image left, text right -->
+            <div class="flex flex-col md:flex-row bg-neutral-900 rounded-xl overflow-hidden mb-8">
+                <div class="md:w-1/2">
+                    <img class="w-full h-full object-cover"
+                        src="https://cdn.cosmos.so/85e3cf35-a474-4caf-a0b4-828f1ccabecb?format=jpeg" alt="Game Asset">
+                </div>
+                <div class="md:w-1/2 p-6 flex flex-col justify-center">
+                    <h3 class="text-xl font-semibold mb-3">Fantasy RPG Projekt</h3>
+                    <p class="text-gray-300">Náš prvý spoločný projekt je fantasy RPG hra inšpirovaná klasickými
+                        titulmi. Pracujeme na inovatívnom systéme boja a pútavom príbehu, ktorý hráčov vtiahne do
+                        magického sveta.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-16 pt-8 border-t border-neutral-800">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 Náš Herný Tím. Všetky práva vyhradené.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-discord text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-github text-xl"></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
+
+<script>
+  // Create stars dynamically
+  const starsContainer = document.getElementById('stars');
+  const starsCount = 100;
+  
+  for (let i = 0; i < starsCount; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    
+    // Random size between 1-3px
+    const size = Math.random() * 2 + 1;
+    star.style.width = `${size}px`;
+    star.style.height = `${size}px`;
+    
+    // Random position
+    star.style.left = `${Math.random() * 100}%`;
+    star.style.top = `${Math.random() * 100}%`;
+    
+    // Random animation delay
+    const delay = Math.random() * 5;
+    const duration = Math.random() * 3 + 2;
+    star.style.animation = `twinkle ${duration}s infinite ease-in-out ${delay}s`;
+    
+    starsContainer.appendChild(star);
+  }
+</script>
